@@ -138,11 +138,11 @@ def create_test_sets(length, start=0):
         pd.DataFrame(sub_dicts).to_csv(path)
         x +=2
     # OC_Meta_coverage.csv 
-    pd.DataFrame(oc_meta_coverage_prep).to_csv("OCMetaCoverage.csv")
+    pd.DataFrame(oc_meta_coverage_prep).to_csv("/home/runner/work/test-play/test-play/OCMetaCoverage.csv")
     # countries.csv
-    pd.DataFrame.from_dict(country_dict, orient="index").sort_values(by="Publication_count", ascending=False).to_csv("countriesFake.csv")
+    pd.DataFrame.from_dict(country_dict, orient="index").sort_values(by="Publication_count", ascending=False).to_csv("/home/runner/work/test-play/test-play/countriesFake.csv")
     # disciplines.csv
-    pd.DataFrame.from_dict(disciplines_dict, orient="index").sort_values(by="Publication_count", ascending=False).to_csv("disciplinesFake.csv")
+    pd.DataFrame.from_dict(disciplines_dict, orient="index").sort_values(by="Publication_count", ascending=False).to_csv("/home/runner/work/test-play/test-play/disciplinesFake.csv")
 
 
                 
@@ -152,17 +152,17 @@ def create_test_sets(length, start=0):
 # ---------------------------- LAUNCH THE TEST ------------------------- #
 
 create_test_sets(8, 0)
-subprocess.run(['python', python_file, '--oc_meta', 'fake_OC_Meta', "--erih_plus", "erih_test.csv", "--doaj", "doaj_test.csv"])
+subprocess.run(['python', python_file, '--oc_meta', 'fake_OC_Meta', "--erih_plus", "/home/runner/work/test-play/test-play/erih_test.csv", "--doaj", "/home/runner/work/test-play/test-play/doaj_test.csv"])
 
 ## Check 
-results = pd.read_csv("OCMeta_DOAJ_ErihPlus_merged.csv").sort_values(by='Publications_in_venue', ignore_index=True).drop(["Unnamed: 0"], axis=1)
-results_test = pd.read_csv("OCMetaCoverage.csv").drop(["Unnamed: 0"], axis=1)
+results = pd.read_csv("/home/runner/work/test-play/test-play/OCMeta_DOAJ_ErihPlus_merged.csv").sort_values(by='Publications_in_venue', ignore_index=True).drop(["Unnamed: 0"], axis=1)
+results_test = pd.read_csv("/home/runner/work/test-play/test-play/OCMetaCoverage.csv").drop(["Unnamed: 0"], axis=1)
 
 if results.equals(results_test):
     print("TEST1: Success ------> OCMeta_DOAJ_ErihPlus_merged.csv is correct")
 
-result_countries = pd.read_csv("countries.csv")
-result_test_countries = pd.read_csv("countriesFake.csv").rename(columns={'Unnamed: 0': 'Country'})
+result_countries = pd.read_csv("/home/runner/work/test-play/test-play/countries.csv")
+result_test_countries = pd.read_csv("/home/runner/work/test-play/test-play/countriesFake.csv").rename(columns={'Unnamed: 0': 'Country'})
 
 if result_countries.equals(result_test_countries):
     print("TEST2: Success ------> countries.csv is correct")
@@ -171,8 +171,8 @@ else:
         for el in ["Country"]:
             if result_countries.at[idx, el] == result_countries.at[] """
 
-result_disciplines = pd.read_csv("disciplines.csv").sort_values("Discipline", ignore_index=True)
-result_test_disciplines = pd.read_csv("disciplinesFake.csv").rename(columns={'Unnamed: 0': 'Discipline'}).sort_values("Discipline", ignore_index=True)
+result_disciplines = pd.read_csv("/home/runner/work/test-play/test-play/disciplines.csv").sort_values("Discipline", ignore_index=True)
+result_test_disciplines = pd.read_csv("/home/runner/work/test-play/test-play/disciplinesFake.csv").rename(columns={'Unnamed: 0': 'Discipline'}).sort_values("Discipline", ignore_index=True)
 
 if result_disciplines.equals(result_test_disciplines):
     print("TEST3: Success ------> disciplines.csv is correct")
