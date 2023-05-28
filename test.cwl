@@ -1,6 +1,6 @@
 cwlVersion: v1.0
 class: CommandLineTool
-baseCommand: ["python", "run_workflow.py"]  # change here
+baseCommand: ["python", "test.py"]  # change here
 
 inputs:
   batch_size:
