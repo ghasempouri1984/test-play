@@ -69,7 +69,7 @@ class PlayaristsProcessor(Processor):
 
         #this is meta-erih-doaj merged
         new_final_df = process_doaj_file(self.doaj_df, final_df)
-        new_final_df.to_csv("OCMeta_DOAJ_ErihPlus_merged.csv")
+        new_final_df.to_csv("/home/runner/work/test-play/test-play/OCMeta_DOAJ_ErihPlus_merged.csv")
         
         publications_coverage_count = new_final_df.shape[0]
         OCMeta_coverage = publications_coverage_count / totalOCMpublications
