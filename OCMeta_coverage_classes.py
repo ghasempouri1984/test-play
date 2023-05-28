@@ -49,19 +49,42 @@ class PlayaristsProcessor(Processor):
         erih_dict = get_erih_plus_dict(self.erih_df) 
         all_results = []
         totalOCMpublications = 0
+        print(f"Found {len(self.meta_path)} files in meta_path")
         with tqdm(total=len(self.meta_path), desc="Batches") as pbar:
             for i in range(0, len(self.meta_path), self.batch_size):
                 batch_files = self.meta_path[i:i+self.batch_size]
+                print(f"Processing batch of {len(batch_files)} files")
                 with concurrent.futures.ProcessPoolExecutor(max_workers=self.max_workers) as executor:
                     results = executor.map(process_file_wrapper, [(f, erih_dict) for f in batch_files])
                     all_results.extend(results)
-                    
+
                 pbar.update(len(batch_files))
 
         results_dict = {}
         for filename, result, publications_count in all_results:
             results_dict[filename] = result
             totalOCMpublications += publications_count
+
+        if not results_dict:
+            print("No results to concatenate")
+            return
+        
+        #erih_dict = get_erih_plus_dict(self.erih_df) 
+        #all_results = []
+        #totalOCMpublications = 0
+        #with tqdm(total=len(self.meta_path), desc="Batches") as pbar:
+        #    for i in range(0, len(self.meta_path), self.batch_size):
+        #       batch_files = self.meta_path[i:i+self.batch_size]
+        #        with concurrent.futures.ProcessPoolExecutor(max_workers=self.max_workers) as executor:
+        #            results = executor.map(process_file_wrapper, [(f, erih_dict) for f in batch_files])
+        #            all_results.extend(results)
+                    
+        #        pbar.update(len(batch_files))
+
+        #results_dict = {}
+        #for filename, result, publications_count in all_results:
+        #    results_dict[filename] = result
+        #    totalOCMpublications += publications_count
             
         #this is meta-erih merged
         final_df = pd.concat(list(results_dict.values()), ignore_index=True)
