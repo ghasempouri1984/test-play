@@ -1,4 +1,4 @@
 test_file:
   class: File
-  path: tests.py
+  path: test.py
 
