@@ -28,4 +28,4 @@ jobs:
 
     - name: Run tests
       run: |
-        cwltool test.cwl --input input.yml
+        cwltool test.cwl input.yml
