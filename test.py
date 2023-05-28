@@ -72,7 +72,7 @@ def create_test_sets(length, start=0):
 
     x = 0
     while x+1 < rows_erih_test:
-        path = "fake_OC_Meta/fake_csv" + str(x//2) +".csv"
+        path = "/home/runner/work/test-play/test-play/fake_OC_Meta/fake_csv" + str(x//2) +".csv"
         sub_dicts = []
         sub_df = erih_test[x:x+2]
         for idx, row in sub_df.iterrows():
