@@ -24,7 +24,7 @@ def create_test_sets(length, start=0):
     else:
         print("You parameters are not accettable")
         return None
-    erih_test.to_csv('erih_test.csv')
+    erih_test.to_csv('/home/runner/work/test-play/test-play/erih_test.csv')
 
     print_issn, online_issn = [], []
     for idx, el in erih_test["Print ISSN"].items():
@@ -54,7 +54,7 @@ def create_test_sets(length, start=0):
 
     doaj_test = doaj_df.iloc[doaj_idx]
     doaj_test = doaj_test.drop(doaj_test.columns[0], axis=1)
-    doaj_test.to_csv('doaj_test.csv')
+    doaj_test.to_csv('/home/runner/work/test-play/test-play/doaj_test.csv')
 
     # csv_dump
     csv = ["id", "title", "author", "issue", "volume", "venue", "page", "pub_date", "type", "publisher", "editor"]
