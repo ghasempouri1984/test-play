@@ -7,8 +7,10 @@ import pandas as pd
 
 # Define the path to the Python file you want to execute
 python_file = 'run_workflow.py'
-erih_plus = "ERIHPLUSapprovedJournals.csv"
-doaj = "journalcsv__doaj.csv"
+#erih_plus = "ERIHPLUSapprovedJournals.csv"
+#doaj = "journalcsv__doaj.csv"
+erih_plus = "/home/runner/work/test-play/test-play/ERIHPLUSapprovedJournals.csv"
+doaj = "/home/runner/work/test-play/test-play/journalcsv__doaj.csv"
 
 
 def create_test_sets(length, start=0):
