@@ -1,3 +1,5 @@
+cwlVersion: v1.0
+class: CommandLineTool
 baseCommand: python
 inputs:
   test_file:
