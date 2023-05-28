@@ -1,4 +1,4 @@
-name: Run tests
+name: Run test
 
 on:
   push:
@@ -28,5 +28,5 @@ jobs:
 
     - name: Run tests
       run: |
-        cwltool tests.cwl --input input.yml
+        cwltool test.cwl --input input.yml
 
