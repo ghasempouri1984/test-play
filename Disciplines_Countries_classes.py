@@ -1,3 +1,4 @@
+import os
 import pandas as pd
 from retrieve_doaj_country import retrieve_doaj_country
 
