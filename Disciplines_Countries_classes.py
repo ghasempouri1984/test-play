@@ -102,7 +102,9 @@ class CountsProcessor(ResultsProcessor):
             new_row = pd.DataFrame([{str(label) : key ,'Journal_count' : venue_per_variable , 'Publication_count' : pub_per_variable}])
             count_df = pd.concat([count_df, new_row], ignore_index = True)
         
-        count_df = count_df.sort_values('Publication_count', ascending=False)        
+        count_df = count_df.sort_values('Publication_count', ascending=False)
+        # Ensure the directory exists before trying to save the file
+        os.makedirs(os.path.dirname(self.export_path), exist_ok=True)
         count_df.to_csv(self.export_path, index=False)
 
         return count_df
