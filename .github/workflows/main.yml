@@ -28,6 +28,9 @@ jobs:
         
     - name: Set execute permission for test.py
       run: chmod +x test.py
+      
+    - name: Set execute permission for run_workflow.py
+      run: chmod +x run_workflow.py
         
     - name: Print working directory
       run: pwd
