@@ -26,6 +26,9 @@ jobs:
         pip install -r requirements.txt
         pip install cwltool
         
+    - name: Set execute permission for test.py
+      run: chmod +x test.py
+        
     - name: Print working directory
       run: pwd
 
