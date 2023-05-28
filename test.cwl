@@ -3,35 +3,35 @@ class: CommandLineTool
 baseCommand: python
 
 inputs:
-  batch_size:
-    type: int
-    inputBinding:
-      prefix: --batch_size
-      position: 2
-  max_workers:
-    type: int
-    inputBinding:
-      prefix: --max_workers
-      position: 3
-  oc_meta:
-    type: string
-    inputBinding:
-      prefix: --oc_meta
-      position: 4
-  erih_plus:
-    type: string
-    inputBinding:
-      prefix: --erih_plus
-      position: 5
-  doaj:
-    type: string
-    inputBinding:
-      prefix: --doaj
-      position: 6
   test_file:
     type: File
     inputBinding:
       position: 1
+  batch_size:
+    type: int
+    default: 150
+    inputBinding:
+      prefix: --batch_size
+  max_workers:
+    type: int
+    default: 4
+    inputBinding:
+      prefix: --max_workers
+  oc_meta:
+    type: string
+    default: "/home/runner/work/test-workflow/test-workflow/csv_dump"
+    inputBinding:
+      prefix: --oc_meta
+  erih_plus:
+    type: string
+    default: "/home/runner/work/test-workflow/test-workflow/ERIHPLUSapprovedJournals.csv"
+    inputBinding:
+      prefix: --erih_plus
+  doaj:
+    type: string
+    default: "/home/runner/work/test-workflow/test-workflow/journalcsv__doaj.csv"
+    inputBinding:
+      prefix: --doaj
 
 outputs:
   test_results:
