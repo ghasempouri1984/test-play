@@ -28,4 +28,4 @@ jobs:
 
     - name: Run tests
       run: |
-        cwltool $GITHUB_WORKSPACE/test.cwl $GITHUB_WORKSPACE/input.yml
+        cwltool test.cwl input.yml
