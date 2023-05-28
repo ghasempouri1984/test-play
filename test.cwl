@@ -1,12 +1,8 @@
 cwlVersion: v1.0
 class: CommandLineTool
-baseCommand: python
+baseCommand: ["python", "run_workflow.py"]  # change here
 
 inputs:
-  test_file:
-    type: File
-    inputBinding:
-      position: 1
   batch_size:
     type: int
     default: 150
