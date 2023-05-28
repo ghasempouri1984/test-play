@@ -6,7 +6,7 @@ import re
 import pandas as pd
 
 # Define the path to the Python file you want to execute
-python_file = 'run_workflow.py'
+python_file = '/home/runner/work/test-play/test-play/run_workflow.py'
 #erih_plus = "ERIHPLUSapprovedJournals.csv"
 #doaj = "journalcsv__doaj.csv"
 erih_plus = "/home/runner/work/test-play/test-play/ERIHPLUSapprovedJournals.csv"
