@@ -6,7 +6,7 @@ import re
 import pandas as pd
 
 # Define the path to the Python file you want to execute
-python_file = '/home/runner/work/test-play/test-play/run_workflow.py'
+python_file = "/home/runner/work/test-play/test-play/run_workflow.py"
 #erih_plus = "ERIHPLUSapprovedJournals.csv"
 #doaj = "journalcsv__doaj.csv"
 erih_plus = "/home/runner/work/test-play/test-play/ERIHPLUSapprovedJournals.csv"
@@ -152,7 +152,7 @@ def create_test_sets(length, start=0):
 # ---------------------------- LAUNCH THE TEST ------------------------- #
 
 create_test_sets(8, 0)
-subprocess.run(['python', python_file, '--oc_meta', 'fake_OC_Meta', "--erih_plus", "/home/runner/work/test-play/test-play/erih_test.csv", "--doaj", "/home/runner/work/test-play/test-play/doaj_test.csv"])
+subprocess.run([sys.executable, python_file, '--oc_meta', 'fake_OC_Meta', "--erih_plus", "/home/runner/work/test-play/test-play/erih_test.csv", "--doaj", "/home/runner/work/test-play/test-play/doaj_test.csv"])
 
 ## Check 
 results = pd.read_csv("/home/runner/work/test-play/test-play/OCMeta_DOAJ_ErihPlus_merged.csv").sort_values(by='Publications_in_venue', ignore_index=True).drop(["Unnamed: 0"], axis=1)
